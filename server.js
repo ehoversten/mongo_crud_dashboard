@@ -135,23 +135,23 @@ app.post('/animals/:id', function(req, res) {
     if(err) {
       console.log('something went wrong', err);
       return res.redirect('edit');
+    } else {
+      console.log("found animal: ", animal.name);
+      // update any changed values from the POST DATA
+      animal.name = req.body.name;
+      animal.age = req.body.age;
+      animal.pack = req.body.pack;
+      animal.save(function(err) {
+        if(err) {
+          console.log("something went wrong" , err );
+          return res.redirect('/animals/:id/edit');
+        } else {
+          console.log("animal attributes updated successfully");
+          return res.render('details', {animal});
+        }
+
+      });
     }
-
-    console.log("found animal: ", animal.name);
-    // update any changed values from the POST DATA
-    animal.name = req.body.name;
-    animal.age = req.body.age;
-    animal.pack = req.body.pack;
-    animal.save(function(err) {
-      if(err) {
-        console.log("something went wrong" , err );
-        return res.redirect('/animals/:id/edit');
-      } else {
-        console.log("animal attributes updated successfully");
-        return res.render('details', {animal});
-      }
-
-    });
   });
 });
 
