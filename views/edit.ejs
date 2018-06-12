@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MongoDB and Mongoose</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/dashboard_styles.css">
+  </head>
+  <body>
+    <div class="WRAPPER">
+      <div class="header">
+        <div class="navbar">
+          <h1>Assignment: Dashboard with MongoDB!</h1>
+        </div>
+      </div>
+      <div class="container">
+
+        <% if(messages.fail) { %>
+          <% for (var x of messages.fail) { %>
+            <h3><%= x %></h3>
+          <% } %>
+        <% } %>
+
+        <form class="form-control" action="/animals/<%= animal.id %>" method="post">
+
+          Name: <input type="text" name="name" value="<%= animal.name  %>">
+          Age: <input type="text" name="age" value="<%= animal.age  %>">
+          Pack: <input type="text" name="pack" value="<%= animal.pack  %>">
+          <input class="btn btn-primary" type="submit" name="submit" value="Update">
+        </form>
+
+        <a class="btn btn-success" href="/">View Animals</a>
+        <a class="btn btn-success" href="/">Back</a>
+
+        <form class="form-control" action="/animal/<%= animal.id %>/delete" method="post">
+          <button class="btn btn-primary" type="submit" name="submit">Delete Item</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

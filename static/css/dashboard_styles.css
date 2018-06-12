@@ -1,0 +1,23 @@
+* {
+  margin: 0px auto;
+}
+
+.header {
+  background-color: grey;
+  height: 100px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.message {
+  margin-top: 25px;
+
+}
+
+p {
+  color: blue;
+}

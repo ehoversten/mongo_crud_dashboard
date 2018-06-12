@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MongoDB and Mongoose</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/dashboard_styles.css">
+  </head>
+  <body>
+    <div class="WRAPPER">
+      <div class="header">
+        <div class="navbar">
+          <h1>Assignment: Dashboard with MongoDB!</h1>
+        </div>
+      </div>
+      <div class="container">
+
+        <% if(messages.fail) { %>
+          <% for (var x of messages.fail) { %>
+            <h3><%= x %></h3>
+          <% } %>
+        <% } %>
+
+        <form class="form-control" action="/new" method="post">
+
+          Name: <input type="text" name="name" value="">
+          Age: <input type="text" name="age" value="">
+          Pack: <input type="text" name="pack" value="">
+          <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+        </form>
+
+        <a class="btn btn-success" href="/animals">View Animals</a>
+        <a class="btn btn-success" href="/">Back</a>
+      </div>
+    </div>
+  </body>
+</html>
